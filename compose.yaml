@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  client:
+    image: your-client-image
+    ports:
+      - 3000:3000
+    volumes:
+      - ./client:/app
+    depends_on:
+      - server
+
+  server:
+    image: your-server-image
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server:/app
