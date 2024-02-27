@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Join from './components/Join';
 import Chat from './components/Chat';
@@ -24,10 +24,10 @@ function App() {
         </a>
       </header>
       <Router>
-        <Switch>
+        <Routes>
           <Route path="/" exact component={Join} />
           <Route path="/chat" component={Chat} />
-        </Switch>
+        </Routes>
       </Router>
     </div>
   );
