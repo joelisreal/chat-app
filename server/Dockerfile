@@ -13,9 +13,11 @@ RUN npm install
 # Copy the rest of the application code to the working directory
 COPY . .
 
-# Build the application
-RUN npm run build
+# # Build the application
+# RUN npm run build
 
+# specify the port that the server should listen on
+# ENV PORT=8000
 # Expose the port on which the application will run
 EXPOSE 8000
 
