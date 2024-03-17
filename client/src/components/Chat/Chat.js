@@ -9,22 +9,28 @@ const Chat = () => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
     const ENDPOINT = 'localhost:8000';   
-    // const location = useLocation(); 
+    const location = useLocation(); 
 
     useEffect(() => {
         const { name, room } = queryString.parse(location.search);
 
-        socket = io(ENDPOINT);//, {transports: ['websocket', 'polling', 'flashsocket']});
+        socket = io(ENDPOINT);
         setName(name);
         setRoom(room);
         console.log(socket);
         console.log(name, room);
         console.log(location.search);
         console.log(window.location.search);
-        socket.emit('join', { name, room }, ({error}) => {
-            alert(error);
-            console.log(error);
+        socket.emit('join', { name, room }, ( ) => {
+            // alert(error);
+            // console.log(error);
         });
+
+        return () => {
+            // socket.emit('disconnect');
+            socket.disconnect();
+            socket.off();
+        }
     }, [ENDPOINT, location.search]);
     return (
         <h1>Chat</h1>
