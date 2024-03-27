@@ -1,0 +1,21 @@
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60vh;
+    overflow: auto;
+    margin-right: 2rem;
+    padding: 0 2rem;
+    color: white;
+}
+
+.textContainer h1 {
+    margin-bottom: 1rem;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+    .textContainer {
+        display: none;
+        /* height: 40vh; */
+    }
+} 

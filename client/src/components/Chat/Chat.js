@@ -8,12 +8,14 @@ import './Chat.css';
 import InfoBar from '../InfoBar/InfoBar';
 import Input from '../Input/Input';
 import Messages from '../Messages/Messages';
+import TextContainer from '../TextContainer/TextContainer';
 
 let socket;
 
 const Chat = () => {
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
+    const [users, setUsers] = useState('');
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
     const ENDPOINT = 'localhost:8000';   
@@ -45,6 +47,10 @@ const Chat = () => {
         socket.on('message', (message) => {
             setMessages([...messages, message]);
         });
+
+        socket.on("roomData", ({ users }) => {
+            setUsers(users);
+        });
     }, [messages]
     );
 
@@ -66,12 +72,14 @@ const Chat = () => {
                 <InfoBar room={room} />
                 <Messages messages={messages} name={name} />
                 <Input message={message} setMessage={setMessage} sendMessage={sendMessage} />
+                {/* <TextContainer users={users} /> */}
                 {/* <input 
                     value={message}
                     onChange={(event) => setMessage(event.target.value)}
                     onKeyDown={event => event.key === 'Enter' ? sendMessage(event) : null}
                 /> */}
             </div>
+            <TextContainer users={users} />
         </div>
     );
 }
