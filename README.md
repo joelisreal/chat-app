@@ -1,10 +1,10 @@
 # Chat App
 
-This is a simple chat application built with Node.js, Socket.io, and React.js.
+This is a simple chat application built with Express.js, Node.js, Socket.IO, and React.js.
 
 ## Features
 
-- Real-time messaging using Socket.io
+- Real-time messaging using Socket.IO
 - User authentication and registration
 - Chat room functionality
 - Emoji support

@@ -12,6 +12,7 @@ const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
 const router = require('./router');
 
 const app = express();
+app.use(router);
 app.use(cors());
 // const server = http.createServer(app);
 const httpServer = createServer(app);
@@ -67,7 +68,7 @@ io.on('connection', (socket) => {
         }
     })
 });
-app.use(router);
+// app.use(router);
 httpServer.listen(8000, () => {
     console.log("server listening on port 8000");
 })
